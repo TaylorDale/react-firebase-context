@@ -39,9 +39,8 @@ class AuthProvider extends Component {
   loginWithGoogle (options) {
     const { scope } = options || {};
     const googleProvider = new firebase.auth.GoogleAuthProvider();
-    googleProvider.addScope(
-      `https://www.googleapis.com/auth/${scope || 'contacts.readonly'}`
-    );
+    if (scope)
+      googleProvider.addScope(`https://www.googleapis.com/auth/${scope}`);
     return this.loginWithProvider(googleProvider);
   }
 
