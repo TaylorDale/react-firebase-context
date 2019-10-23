@@ -16,7 +16,7 @@ class FirestoreProvider extends Component {
 
     this.firestore = firebase.firestore();
     const { query, children, ...customSettings } = props;
-    this.firestore.settings({ ...customSettings, timestampsInSnapshots: true });
+    this.firestore.settings({ ...customSettings });
   }
 
   /**
